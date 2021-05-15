@@ -122,6 +122,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				F047B90EF3E228C51E6702CD /* Pods */,
+				FEB5BF070CFE453CA9C891DF /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -145,8 +146,14 @@
 				960BCE5BE06A77313711447F /* Pods-oxglo-oxgloTests.debug.xcconfig */,
 				1322B3CAE49D6889C3308666 /* Pods-oxglo-oxgloTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FEB5BF070CFE453CA9C891DF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
