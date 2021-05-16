@@ -1,4 +1,4 @@
-import { Ticket } from "./constants";
+import { Ticket } from "../controller/ModelConstants";
 
 export const TICKETS: Array<Ticket> = [
     {
