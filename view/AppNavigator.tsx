@@ -4,9 +4,10 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {getIconFromTabName} from '../controller/utils';
-import ProfileScreen from './ProfileScreen';
+import ProfileNavigator from './ProfileNavigator';
 import HomeScreen from './HomeScreen';
-import {NavTab, TAB_TO_NAME} from '../controller/NavConstants';
+import {NavScreen, SCREEN_TO_NAME} from '../controller/NavConstants';
+import CreateScreen from './CreateScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,8 +21,6 @@ export default function AppNavigator(): JSX.Element {
           const finalIconName = focused
             ? iconName
             : iconName.concat('-outline');
-
-          // You can return any component that you like here!
           return <Ionicons name={finalIconName} size={size} color={color} />;
         },
       })}
@@ -29,10 +28,20 @@ export default function AppNavigator(): JSX.Element {
         activeTintColor: 'tomato',
         inactiveTintColor: 'gray',
       }}>
-      <Tab.Screen name={TAB_TO_NAME[NavTab.Home]} component={HomeScreen} />
       <Tab.Screen
-        name={TAB_TO_NAME[NavTab.Profile]}
-        component={ProfileScreen}
+        name={SCREEN_TO_NAME[NavScreen.HomeScreen]}
+        component={HomeScreen}
+        options={{title: ''}}
+      />
+      <Tab.Screen
+        name={SCREEN_TO_NAME[NavScreen.CreateScreen]}
+        component={CreateScreen}
+        options={{title: ''}}
+      />
+      <Tab.Screen
+        name={SCREEN_TO_NAME[NavScreen.ProfileNavigator]}
+        component={ProfileNavigator}
+        options={{title: ''}}
       />
     </Tab.Navigator>
   );

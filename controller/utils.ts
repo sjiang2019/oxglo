@@ -1,4 +1,4 @@
-import {NAME_TO_TAB, TAB_TO_ICON} from './NavConstants';
+import {NAME_TO_SCREEN, SCREEN_TO_ICON} from './NavConstants';
 
 export function assert(condition, message) {
   if (!condition) {
@@ -7,6 +7,6 @@ export function assert(condition, message) {
 }
 
 export function getIconFromTabName(tabName: string): string {
-  assert(tabName in NAME_TO_TAB, `Unexpected tab name ${tabName}.`);
-  return TAB_TO_ICON[NAME_TO_TAB[tabName]];
+  assert(tabName in NAME_TO_SCREEN, `Unexpected tab name ${tabName}.`);
+  return SCREEN_TO_ICON[NAME_TO_SCREEN[tabName]];
 }
