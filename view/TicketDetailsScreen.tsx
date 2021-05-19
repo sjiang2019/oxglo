@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {Text, View, Image} from 'react-native';
 
-export default function TicketDetailsScreen({route, params}): JSX.Element {
+export default function TicketDetailsScreen({route, navigation}): JSX.Element {
   const {ticket} = route.params;
   const image = {
     uri: ticket.imageUrl,

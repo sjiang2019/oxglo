@@ -7,7 +7,7 @@ import {getIconFromTabName} from '../controller/utils';
 import ProfileNavigator from './ProfileNavigator';
 import HomeScreen from './HomeScreen';
 import {NavScreen, SCREEN_TO_NAME} from '../controller/NavConstants';
-import CreateScreen from './CreateScreen';
+import CreateNavigator from './CreateNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -34,8 +34,8 @@ export default function AppNavigator(): JSX.Element {
         options={{title: ''}}
       />
       <Tab.Screen
-        name={SCREEN_TO_NAME[NavScreen.CreateScreen]}
-        component={CreateScreen}
+        name={SCREEN_TO_NAME[NavScreen.CreateNavigator]}
+        component={CreateNavigator}
         options={{title: ''}}
       />
       <Tab.Screen
