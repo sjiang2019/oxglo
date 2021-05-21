@@ -17,36 +17,46 @@ export default function ProfileScreen({navigation}): JSX.Element {
     return <TicketCard ticket={item} onClickTicket={handleClickTicket} />;
   };
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Image
-        style={styles.avatar}
-        source={{uri: 'https://bootdey.com/img/Content/avatar/avatar6.png'}}
-      />
-      <Text style={styles.name}>John Doe </Text>
-      <Text style={styles.userInfo}>jhonnydoe@mail.com </Text>
-      <Text style={styles.userInfo}>Florida </Text>
-      <FlatList data={TICKETS} renderItem={renderTicket} numColumns={3} />
+    <View style={styles.container}>
+      <View style={styles.profileContainer}>
+        <Image
+          style={styles.avatar}
+          source={{uri: 'https://bootdey.com/img/Content/avatar/avatar6.png'}}
+        />
+        <Text style={styles.userInfo}>@tdip </Text>
+      </View>
+      <View style={styles.ticketContainer}>
+        <FlatList data={TICKETS} renderItem={renderTicket} numColumns={3} />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  profileContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   avatar: {
-    width: 130,
-    height: 130,
+    width: 100,
+    height: 100,
     borderRadius: 63,
-    borderWidth: 4,
     borderColor: 'white',
     marginBottom: 10,
   },
-  name: {
-    fontSize: 22,
-    color: '#000000',
-    fontWeight: '600',
-  },
   userInfo: {
     fontSize: 16,
-    color: '#778899',
+    color: 'black',
     fontWeight: '600',
+  },
+  ticketContainer: {
+    flex: 3,
+    alignItems: 'center',
   },
 });

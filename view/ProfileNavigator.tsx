@@ -19,7 +19,7 @@ export default function ProfileNavigator(): JSX.Element {
       <Stack.Screen
         name={SCREEN_TO_NAME[NavScreen.TicketDetails]}
         component={TicketDetailsScreen}
-        options={{title: 'Details'}}
+        options={{title: ''}}
       />
     </Stack.Navigator>
   );
