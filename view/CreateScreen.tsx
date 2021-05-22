@@ -35,14 +35,24 @@ export default function CreateScreen({route, navigation}): JSX.Element {
   return (
     <>
       <View style={styles.header}>
-        <Button transparent>
+        <Button
+          transparent
+          onPress={() =>
+            navigation.reset({
+              index: 0,
+              routes: [{name: SCREEN_TO_NAME[NavScreen.HomeScreen]}],
+            })
+          }>
           <Text>Save</Text>
         </Button>
       </View>
       <View style={styles.container}>
         <TouchableOpacity
           onPress={() =>
-            navigation.navigate(SCREEN_TO_NAME[NavScreen.CameraScreen])
+            navigation.reset({
+              index: 0,
+              routes: [{name: SCREEN_TO_NAME[NavScreen.CameraScreen]}],
+            })
           }>
           <Image
             style={{borderWidth: 1, borderColor: 'lightgray', marginBottom: 40}}

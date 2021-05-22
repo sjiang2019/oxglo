@@ -10,7 +10,7 @@ export default function HomeScreen(): JSX.Element {
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <LottieView
         style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
-        source={require('../assets/60820-bicycle-riding.json')}
+        source={require('../assets/474-skeleton-frame-loading.json')}
         autoPlay
         loop
       />
@@ -23,14 +23,14 @@ export default function HomeScreen(): JSX.Element {
 
 const styles = StyleSheet.create({
   signoutBtn: {
-    width: '80%',
+    width: '40%',
     borderRadius: 25,
-    height: 50,
+    height: 40,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 40,
     backgroundColor: 'tomato',
     position: 'absolute',
-    bottom: 20,
+    bottom: 15,
   },
 });

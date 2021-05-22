@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 
 export default function CreateNavigator(): JSX.Element {
   return (
-    <Stack.Navigator initialRouteName={SCREEN_TO_NAME[NavScreen.CreateScreen]}>
+    <Stack.Navigator initialRouteName={SCREEN_TO_NAME[NavScreen.CameraScreen]}>
       <Stack.Screen
         name={SCREEN_TO_NAME[NavScreen.CreateScreen]}
         component={CreateScreen}
