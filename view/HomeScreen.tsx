@@ -1,7 +1,7 @@
 import * as React from 'react';
 import LottieView from 'lottie-react-native';
 
-import {Button, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {AuthContext} from '../App';
 
 export default function HomeScreen(): JSX.Element {

@@ -1,42 +1,33 @@
 import * as React from 'react';
 
-import {
-  Button,
-  ImageBackground,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {RNCamera} from 'react-native-camera';
+import {launchImageLibrary} from 'react-native-image-picker';
+
 import {NavScreen, SCREEN_TO_NAME} from '../controller/NavConstants';
+import CameraPreview from './CameraPreview';
 
-interface CameraPreviewProps {
-  photo: any;
-  onRetake: () => void;
-  onSave: () => void;
-}
+const handleSelectPhoto = (setImage, setPreview) => {
+  const options = {
+    storageOptions: {
+      skipBackup: true,
+      path: 'images',
+    },
+  };
+  launchImageLibrary(options, response => {
+    console.log('Response = ', response);
 
-function CameraPreview(props: CameraPreviewProps): JSX.Element {
-  return (
-    <View
-      style={{
-        backgroundColor: 'transparent',
-        flex: 1,
-        width: '100%',
-        height: '100%',
-      }}>
-      <Button onPress={props.onRetake} title="Retake Photo" />
-      <Button onPress={props.onSave} title="Save Photo" />
-      <ImageBackground
-        source={{uri: props.photo && props.photo.uri}}
-        style={{
-          flex: 1,
-        }}
-      />
-    </View>
-  );
-}
+    if (response.didCancel) {
+      console.log('User cancelled image picker');
+    } else if (response.error) {
+      console.log('ImagePicker Error: ', response.error);
+    } else {
+      console.log('response', JSON.stringify(response));
+      setPreview(true);
+      setImage(response);
+    }
+  });
+};
 
 export default function CameraScreen({navigation}) {
   const [previewVisible, setPreviewVisible] = React.useState(false);
@@ -82,9 +73,17 @@ export default function CameraScreen({navigation}) {
           <View
             style={{flex: 0, flexDirection: 'row', justifyContent: 'center'}}>
             <TouchableOpacity
+              onPress={() => {
+                handleSelectPhoto(setCapturedImage, setPreviewVisible);
+                setPreviewVisible(true);
+              }}
+              style={styles.capture}>
+              <Text style={{fontSize: 14}}> Library </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
               onPress={takePicture.bind(this)}
               style={styles.capture}>
-              <Text style={{fontSize: 14}}> SNAP </Text>
+              <Text style={{fontSize: 14}}> Capture </Text>
             </TouchableOpacity>
           </View>
         </>

@@ -19,7 +19,7 @@ export default function CreateNavigator(): JSX.Element {
       <Stack.Screen
         name={SCREEN_TO_NAME[NavScreen.CameraScreen]}
         component={CameraScreen}
-        options={{title: 'Camera'}}
+        options={{headerShown: false}}
       />
     </Stack.Navigator>
   );

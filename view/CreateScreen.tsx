@@ -1,39 +1,27 @@
 import * as React from 'react';
+import Moment from 'moment';
 
-import {
-  Button,
-  Image,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {Button, Item, Input, Text} from 'native-base';
 import DatePicker from 'react-native-date-picker';
 import Collapsible from 'react-native-collapsible';
 
 import {NavScreen, SCREEN_TO_NAME} from '../controller/NavConstants';
 
-interface FormInputProps {
-  label: string;
+function TextField({
+  placeholder,
+  onChangeText,
+}: {
+  placeholder: string;
   onChangeText: (text: string) => void;
-  placeholder?: string;
-}
-
-function FormInput(props: FormInputProps): JSX.Element {
+}): JSX.Element {
   return (
-    <View style={{flexDirection: 'row'}}>
-      <View style={styles.label}>
-        <Text>{props.label}</Text>
-      </View>
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder={props.placeholder}
-          onChangeText={name => props.onChangeText(name)}
-        />
-      </View>
-    </View>
+    <Item style={styles.textField}>
+      <Input
+        placeholder={placeholder}
+        onChangeText={text => onChangeText(text)}
+      />
+    </Item>
   );
 }
 
@@ -45,72 +33,68 @@ export default function CreateScreen({route, navigation}): JSX.Element {
   const [date, setDate] = React.useState(new Date());
 
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <FormInput label="Name" onChangeText={setName} placeholder="Name" />
-      <FormInput
-        label="Location"
-        onChangeText={setLocation}
-        placeholder="Location"
-      />
-      <TouchableOpacity onPress={() => setIsCollapsed(!isCollapsed)}>
-        <Text>DATE</Text>
-      </TouchableOpacity>
-      <Collapsible collapsed={isCollapsed}>
-        <DatePicker date={date} onDateChange={setDate} />
-      </Collapsible>
-      <Button
-        onPress={() =>
-          navigation.navigate(SCREEN_TO_NAME[NavScreen.CameraScreen])
-        }
-        title="Press"
-      />
-      {photo != null ? (
-        <Image
-          source={{
-            width: 128,
-            height: 128,
-            uri: photo.uri,
-          }}
-        />
-      ) : undefined}
-    </View>
+    <>
+      <View style={styles.header}>
+        <Button transparent>
+          <Text>Save</Text>
+        </Button>
+      </View>
+      <View style={styles.container}>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate(SCREEN_TO_NAME[NavScreen.CameraScreen])
+          }>
+          <Image
+            style={{borderWidth: 1, borderColor: 'lightgray', marginBottom: 40}}
+            source={{
+              width: 128,
+              height: 128,
+              uri:
+                photo != null
+                  ? photo.uri
+                  : 'https://i.stack.imgur.com/y9DpT.jpg',
+            }}
+          />
+        </TouchableOpacity>
+        <TextField placeholder="Name" onChangeText={setName} />
+        <TextField placeholder="Location" onChangeText={setLocation} />
+
+        <Item
+          style={styles.textField}
+          onPress={() => setIsCollapsed(!isCollapsed)}>
+          <Input
+            value={Moment(date).format('MMM DD, YYYY')}
+            pointerEvents="none"
+          />
+        </Item>
+
+        <Collapsible collapsed={isCollapsed}>
+          <DatePicker date={date} onDateChange={setDate} />
+        </Collapsible>
+      </View>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
+  header: {
+    marginTop: 40,
+    marginRight: 10,
+    alignSelf: 'flex-end',
+  },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 80,
   },
 
   image: {
     marginBottom: 40,
   },
 
-  inputView: {
-    flex: 3,
-    borderBottomWidth: 1,
-    width: '70%',
-    height: 30,
-  },
-
-  label: {
-    flex: 1,
-    marginLeft: 10,
-    justifyContent: 'center',
-  },
-
-  TextInput: {
-    height: 50,
-    flex: 1,
-    marginLeft: 10,
-  },
-
-  forgot_button: {
-    height: 30,
-    marginBottom: 30,
+  textField: {
+    marginLeft: 15,
+    marginRight: 15,
   },
 
   loginBtn: {
