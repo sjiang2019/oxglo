@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Button, Icon} from 'native-base';
 import {RNCamera} from 'react-native-camera';
 import {launchImageLibrary} from 'react-native-image-picker';
 
@@ -71,20 +72,32 @@ export default function CameraScreen({navigation}) {
             }}
           />
           <View
-            style={{flex: 0, flexDirection: 'row', justifyContent: 'center'}}>
-            <TouchableOpacity
-              onPress={() => {
-                handleSelectPhoto(setCapturedImage, setPreviewVisible);
-                setPreviewVisible(true);
-              }}
-              style={styles.capture}>
-              <Text style={{fontSize: 14}}> Library </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={takePicture.bind(this)}
-              style={styles.capture}>
-              <Text style={{fontSize: 14}}> Capture </Text>
-            </TouchableOpacity>
+            style={{
+              flex: 0,
+              flexDirection: 'row',
+              justifyContent: 'center',
+            }}>
+            <View style={{flex: 0, position: 'absolute', left: 15, top: 0}}>
+              <Button
+                dark
+                onPress={() => {
+                  handleSelectPhoto(setCapturedImage, setPreviewVisible);
+                  setPreviewVisible(true);
+                }}>
+                <Icon
+                  name="images-outline"
+                  style={{fontSize: 30, height: 80}}
+                />
+              </Button>
+            </View>
+            <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+              <Button dark onPress={takePicture.bind(this)}>
+                <Icon
+                  name="radio-button-on-outline"
+                  style={{fontSize: 80, height: 160}}
+                />
+              </Button>
+            </View>
           </View>
         </>
       )}

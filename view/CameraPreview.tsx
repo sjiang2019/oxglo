@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {Button, ImageBackground, View} from 'react-native';
+import {Icon} from 'native-base';
 
 interface CameraPreviewProps {
   photo: any;
@@ -23,12 +24,17 @@ export default function CameraPreview(props: CameraPreviewProps): JSX.Element {
           flex: 1,
         }}>
         <View style={{flexDirection: 'row', marginTop: 40}}>
-          <Button onPress={props.onRetake} title="Cancel" />
-          <Button
-            onPress={props.onSave}
-            title="Save"
-            style={{position: 'absolute', right: 0}}
-          />
+          <View style={{flex: 0, position: 'absolute', left: 30, top: 5}}>
+            <Icon
+              name="close-sharp"
+              style={{fontSize: 30, height: 80, color: 'white'}}
+              onPress={props.onRetake}
+            />
+            {/* <Button onPress={props.onRetake} title="Cancel" /> */}
+          </View>
+          <View style={{flex: 0, position: 'absolute', right: 30, top: 5}}>
+            <Button onPress={props.onSave} title="Next" />
+          </View>
         </View>
       </ImageBackground>
     </View>
