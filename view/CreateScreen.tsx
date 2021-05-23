@@ -1,12 +1,28 @@
 import * as React from 'react';
 import Moment from 'moment';
 
-import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  Keyboard,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import {Button, Item, Input, Text} from 'native-base';
 import DatePicker from 'react-native-date-picker';
 import Collapsible from 'react-native-collapsible';
 
 import {NavScreen, SCREEN_TO_NAME} from '../controller/NavConstants';
+
+const DismissKeyboard = ({children}) => (
+  <TouchableWithoutFeedback
+    onPress={() => Keyboard.dismiss()}
+    accessible={false}>
+    {children}
+  </TouchableWithoutFeedback>
+);
 
 function TextField({
   placeholder,
@@ -16,7 +32,7 @@ function TextField({
   onChangeText: (text: string) => void;
 }): JSX.Element {
   return (
-    <Item style={styles.textField}>
+    <Item>
       <Input
         placeholder={placeholder}
         onChangeText={text => onChangeText(text)}
@@ -66,21 +82,21 @@ export default function CreateScreen({route, navigation}): JSX.Element {
             }}
           />
         </TouchableOpacity>
-        <TextField placeholder="Name" onChangeText={setName} />
-        <TextField placeholder="Location" onChangeText={setLocation} />
-
-        <Item
-          style={styles.textField}
-          onPress={() => setIsCollapsed(!isCollapsed)}>
-          <Input
-            value={Moment(date).format('MMM DD, YYYY')}
-            pointerEvents="none"
-          />
-        </Item>
-
-        <Collapsible collapsed={isCollapsed}>
-          <DatePicker date={date} onDateChange={setDate} />
-        </Collapsible>
+        <ScrollView
+          keyboardShouldPersistTaps="never"
+          keyboardDismissMode="interactive">
+          <TextField placeholder="Name" onChangeText={setName} />
+          <TextField placeholder="Location" onChangeText={setLocation} />
+          <Item onPress={() => setIsCollapsed(!isCollapsed)}>
+            <Input
+              value={Moment(date).format('MMM DD, YYYY')}
+              pointerEvents="none"
+            />
+          </Item>
+          <Collapsible collapsed={isCollapsed}>
+            <DatePicker date={date} onDateChange={setDate} />
+          </Collapsible>
+        </ScrollView>
       </View>
     </>
   );
@@ -100,11 +116,6 @@ const styles = StyleSheet.create({
 
   image: {
     marginBottom: 40,
-  },
-
-  textField: {
-    marginLeft: 15,
-    marginRight: 15,
   },
 
   loginBtn: {
