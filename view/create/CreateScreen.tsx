@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Moment from 'moment';
 
+import {StackActions} from '@react-navigation/native';
+
 import {
   Image,
   Keyboard,
@@ -63,9 +65,7 @@ export default function CreateScreen({route, navigation}): JSX.Element {
       />
       <View style={styles.container}>
         <TouchableOpacity
-          onPress={() =>
-            handleResetStack(navigation, SCREEN_TO_NAME[NavScreen.CameraScreen])
-          }>
+          onPress={() => navigation.dispatch(StackActions.pop(1))}>
           <Image
             style={styles.image}
             source={{

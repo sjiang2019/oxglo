@@ -65,20 +65,14 @@ export default function CameraScreen({navigation}) {
             ref={ref => {
               this.camera = ref;
             }}
-            style={styles.preview}
+            style={styles.camera}
             type={RNCamera.Constants.Type.back}
             onGoogleVisionBarcodesDetected={({barcodes}) => {
               console.log(barcodes);
             }}
           />
-          <View
-            style={{
-              flex: 0,
-              flexDirection: 'row',
-              justifyContent: 'center',
-              backgroundColor: 'transparent',
-            }}>
-            <View style={{flex: 0, position: 'absolute', left: 15, top: 0}}>
+          <View style={styles.buttonContainer}>
+            <View style={styles.galleryButton}>
               <Button
                 dark
                 onPress={() => {
@@ -91,7 +85,7 @@ export default function CameraScreen({navigation}) {
                 />
               </Button>
             </View>
-            <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+            <View style={styles.captureButton}>
               <Button dark onPress={takePicture.bind(this)}>
                 <Icon
                   name="radio-button-on-outline"
@@ -112,18 +106,26 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'black',
   },
-  preview: {
+  camera: {
     flex: 1,
-    justifyContent: 'flex-end',
     alignItems: 'center',
   },
-  capture: {
+  buttonContainer: {
     flex: 0,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    padding: 15,
-    paddingHorizontal: 20,
-    alignSelf: 'center',
-    margin: 20,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    height: 100,
+  },
+  galleryButton: {
+    flex: 0,
+    position: 'absolute',
+    left: 15,
+    top: 50,
+  },
+  captureButton: {
+    flex: 0,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    top: 60,
   },
 });
