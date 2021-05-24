@@ -28,6 +28,7 @@ function TextField({
       <Input
         placeholder={placeholder}
         onChangeText={text => onChangeText(text)}
+        returnKeyType="done"
       />
     </Item>
   );

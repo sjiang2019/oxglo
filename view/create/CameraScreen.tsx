@@ -76,6 +76,7 @@ export default function CameraScreen({navigation}) {
               flex: 0,
               flexDirection: 'row',
               justifyContent: 'center',
+              backgroundColor: 'transparent',
             }}>
             <View style={{flex: 0, position: 'absolute', left: 15, top: 0}}>
               <Button
