@@ -1,12 +1,6 @@
 import * as React from 'react';
 
-import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
-import {Button, Icon} from 'native-base';
-
-import {Ticket} from '../controller/ModelConstants';
-import {NavScreen, SCREEN_TO_NAME} from '../controller/NavConstants';
-import {TICKETS} from '../model/testData';
-import TicketCard from './TicketCard';
+import {Image, StyleSheet, Text, View} from 'react-native';
 
 export default function EditProfileScreen({navigation}): JSX.Element {
   return (

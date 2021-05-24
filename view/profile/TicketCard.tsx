@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {View, TouchableOpacity, Image} from 'react-native';
 
-import {Ticket} from '../controller/ModelConstants';
+import {Ticket} from '../../controller/ModelConstants';
 
 interface TicketCardProps {
   ticket: Ticket;

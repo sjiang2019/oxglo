@@ -2,7 +2,7 @@ import * as React from 'react';
 import LottieView from 'lottie-react-native';
 
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {AuthContext} from '../App';
+import {AuthContext} from '../../App';
 
 export default function HomeScreen(): JSX.Element {
   const {signOut} = React.useContext(AuthContext);
@@ -10,7 +10,7 @@ export default function HomeScreen(): JSX.Element {
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <LottieView
         style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
-        source={require('../assets/474-skeleton-frame-loading.json')}
+        source={require('../../assets/474-skeleton-frame-loading.json')}
         autoPlay
         loop
       />

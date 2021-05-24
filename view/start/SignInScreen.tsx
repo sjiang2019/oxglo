@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 
-import {AuthContext} from '../App';
+import {AuthContext} from '../../App';
 
 export default function SignInScreen() {
   const [username, setUsername] = React.useState('');
