@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 
-import SignInScreen from './view/SignInScreen';
-import AppNavigator from './view/AppNavigator';
+import SignInScreen from './view/start/SignInScreen';
+import AppNavigator from './view/start/AppNavigator';
 import {DEFAULT_AUTH_STATE} from './controller/AuthConstants';
 import {
   fetchUserToken,

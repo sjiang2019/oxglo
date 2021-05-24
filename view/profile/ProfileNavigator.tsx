@@ -3,9 +3,10 @@ import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import ProfileScreen from './ProfileScreen';
+import SettingsScreen from './SettingsScreen';
 import TicketDetailsScreen from './TicketDetailsScreen';
 import EditProfileScreen from './EditProfileScreen';
-import {NavScreen, SCREEN_TO_NAME} from '../controller/NavConstants';
+import {NavScreen, SCREEN_TO_NAME} from '../../controller/NavConstants';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,11 @@ export default function ProfileNavigator(): JSX.Element {
         name={SCREEN_TO_NAME[NavScreen.ProfileScreen]}
         component={ProfileScreen}
         options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={SCREEN_TO_NAME[NavScreen.SettingsScreen]}
+        component={SettingsScreen}
+        options={{title: ''}}
       />
       <Stack.Screen
         name={SCREEN_TO_NAME[NavScreen.TicketDetails]}

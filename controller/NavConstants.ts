@@ -8,6 +8,7 @@ export enum NavScreen {
   HomeScreen,
   ProfileNavigator,
   ProfileScreen,
+  SettingsScreen,
   TicketDetails,
 }
 
@@ -19,6 +20,7 @@ export const SCREEN_TO_NAME: {[key in NavScreen]: string} = {
   [NavScreen.HomeScreen]: 'HOME_SCREEN',
   [NavScreen.ProfileNavigator]: 'PROFILE_NAVIGATOR',
   [NavScreen.ProfileScreen]: 'PROFILE_SCREEN',
+  [NavScreen.SettingsScreen]: 'SETTINGS_SCREEN',
   [NavScreen.TicketDetails]: 'TICKET_DETAILS',
 };
 

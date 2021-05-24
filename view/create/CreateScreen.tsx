@@ -7,22 +7,14 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
-  TouchableWithoutFeedback,
   View,
 } from 'react-native';
-import {Button, Item, Input, Text} from 'native-base';
+import {Item, Input} from 'native-base';
 import DatePicker from 'react-native-date-picker';
 import Collapsible from 'react-native-collapsible';
 
-import {NavScreen, SCREEN_TO_NAME} from '../controller/NavConstants';
-
-const DismissKeyboard = ({children}) => (
-  <TouchableWithoutFeedback
-    onPress={() => Keyboard.dismiss()}
-    accessible={false}>
-    {children}
-  </TouchableWithoutFeedback>
-);
+import {NavScreen, SCREEN_TO_NAME} from '../../controller/NavConstants';
+import SaveCancelHeader from '../shared/SaveCancelHeader';
 
 function TextField({
   placeholder,
@@ -41,6 +33,13 @@ function TextField({
   );
 }
 
+const handleResetStack = (navigation, screen) => {
+  navigation.reset({
+    index: 0,
+    routes: [{name: screen}],
+  });
+};
+
 export default function CreateScreen({route, navigation}): JSX.Element {
   const photo = route.params?.photo;
   const [name, setName] = React.useState('');
@@ -50,31 +49,27 @@ export default function CreateScreen({route, navigation}): JSX.Element {
 
   return (
     <>
-      <View style={styles.header}>
-        <Button
-          transparent
-          onPress={() =>
-            navigation.reset({
-              index: 0,
-              routes: [{name: SCREEN_TO_NAME[NavScreen.HomeScreen]}],
-            })
-          }>
-          <Text>Save</Text>
-        </Button>
-      </View>
+      <SaveCancelHeader
+        showCancel={true}
+        showSave={true}
+        onSave={() =>
+          handleResetStack(navigation, SCREEN_TO_NAME[NavScreen.HomeScreen])
+        }
+        onCancel={() =>
+          handleResetStack(navigation, SCREEN_TO_NAME[NavScreen.CameraScreen])
+        }
+        cancelText="Discard"
+      />
       <View style={styles.container}>
         <TouchableOpacity
           onPress={() =>
-            navigation.reset({
-              index: 0,
-              routes: [{name: SCREEN_TO_NAME[NavScreen.CameraScreen]}],
-            })
+            handleResetStack(navigation, SCREEN_TO_NAME[NavScreen.CameraScreen])
           }>
           <Image
-            style={{borderWidth: 1, borderColor: 'lightgray', marginBottom: 40}}
+            style={styles.image}
             source={{
-              width: 128,
-              height: 128,
+              width: 256,
+              height: 256,
               uri:
                 photo != null
                   ? photo.uri
@@ -83,11 +78,15 @@ export default function CreateScreen({route, navigation}): JSX.Element {
           />
         </TouchableOpacity>
         <ScrollView
-          keyboardShouldPersistTaps="never"
+          keyboardShouldPersistTaps="always"
           keyboardDismissMode="interactive">
           <TextField placeholder="Name" onChangeText={setName} />
           <TextField placeholder="Location" onChangeText={setLocation} />
-          <Item onPress={() => setIsCollapsed(!isCollapsed)}>
+          <Item
+            onPress={() => {
+              Keyboard.dismiss();
+              setIsCollapsed(!isCollapsed);
+            }}>
             <Input
               value={Moment(date).format('MMM DD, YYYY')}
               pointerEvents="none"
@@ -115,6 +114,8 @@ const styles = StyleSheet.create({
   },
 
   image: {
+    borderWidth: 1,
+    borderColor: 'lightgray',
     marginBottom: 40,
   },
 

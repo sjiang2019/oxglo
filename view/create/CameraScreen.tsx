@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {Button, Icon} from 'native-base';
 import {RNCamera} from 'react-native-camera';
 import {launchImageLibrary} from 'react-native-image-picker';
 
-import {NavScreen, SCREEN_TO_NAME} from '../controller/NavConstants';
+import {NavScreen, SCREEN_TO_NAME} from '../../controller/NavConstants';
 import CameraPreview from './CameraPreview';
 
 const handleSelectPhoto = (setImage, setPreview) => {
