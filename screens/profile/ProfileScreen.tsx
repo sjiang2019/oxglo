@@ -3,10 +3,10 @@ import * as React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import {Button, Icon} from 'native-base';
 
-import {NavScreen, SCREEN_TO_NAME} from '../../controller/NavConstants';
-import {TICKETS} from '../../model/testData';
 import TicketListing from './TicketListing';
-import {Ticket} from '../../controller/ModelConstants';
+import {NavScreen, SCREEN_TO_NAME} from '../../constants/NavConstants';
+import {Ticket} from '../../constants/ModelConstants';
+import {TICKETS} from '../../test/testData';
 
 interface ProfileHeaderProps {
   onClickMore: () => void;

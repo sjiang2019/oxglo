@@ -3,10 +3,10 @@ import * as React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import {Textarea} from 'native-base';
 
-import {NavScreen, SCREEN_TO_NAME} from '../../controller/NavConstants';
-import {handleResetStack} from '../../controller/utils';
-import SaveCancelHeader from '../shared/SaveCancelHeader';
-import TextField from '../shared/TextField';
+import SaveCancelHeader from '../../components/SaveCancelHeader';
+import {handleResetStack} from '../../utils/utils';
+import {NavScreen, SCREEN_TO_NAME} from '../../constants/NavConstants';
+import TextField from '../../components/TextField';
 
 export default function EditProfileScreen({navigation}): JSX.Element {
   const [name, setName] = React.useState('');

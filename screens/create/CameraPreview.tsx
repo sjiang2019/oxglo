@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {ImageBackground, View} from 'react-native';
-import SaveCancelHeader from '../shared/SaveCancelHeader';
+import SaveCancelHeader from '../../components/SaveCancelHeader';
 
 interface CameraPreviewProps {
   photo: any;

@@ -1,4 +1,8 @@
-import {RESTORE_TOKEN_KEY, SIGN_IN_KEY, SIGN_OUT_KEY} from './AuthConstants';
+import {
+  RESTORE_TOKEN_KEY,
+  SIGN_IN_KEY,
+  SIGN_OUT_KEY,
+} from '../constants/AuthConstants';
 
 export const fetchUserToken = async dispatch => {
   let userToken;

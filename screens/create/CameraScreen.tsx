@@ -5,8 +5,8 @@ import {Button, Icon} from 'native-base';
 import {RNCamera} from 'react-native-camera';
 import {launchImageLibrary} from 'react-native-image-picker';
 
-import {NavScreen, SCREEN_TO_NAME} from '../../controller/NavConstants';
 import CameraPreview from './CameraPreview';
+import {NavScreen, SCREEN_TO_NAME} from '../../constants/NavConstants';
 
 const handleSelectPhoto = (setImage, setPreview) => {
   const options = {

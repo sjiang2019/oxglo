@@ -1,8 +1,7 @@
 import * as React from 'react';
 
 import {FlatList, StyleSheet, View} from 'react-native';
-
-import {Ticket} from '../../controller/ModelConstants';
+import {Ticket} from '../../constants/ModelConstants';
 
 import TicketCard from './TicketCard';
 
