@@ -17,31 +17,8 @@ import Collapsible from 'react-native-collapsible';
 
 import {NavScreen, SCREEN_TO_NAME} from '../../controller/NavConstants';
 import SaveCancelHeader from '../shared/SaveCancelHeader';
-
-function TextField({
-  placeholder,
-  onChangeText,
-}: {
-  placeholder: string;
-  onChangeText: (text: string) => void;
-}): JSX.Element {
-  return (
-    <Item>
-      <Input
-        placeholder={placeholder}
-        onChangeText={text => onChangeText(text)}
-        returnKeyType="done"
-      />
-    </Item>
-  );
-}
-
-const handleResetStack = (navigation, screen) => {
-  navigation.reset({
-    index: 0,
-    routes: [{name: screen}],
-  });
-};
+import {handleResetStack} from '../../controller/utils';
+import TextField from '../shared/TextField';
 
 export default function CreateScreen({route, navigation}): JSX.Element {
   const photo = route.params?.photo;

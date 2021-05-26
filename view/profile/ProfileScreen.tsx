@@ -1,13 +1,12 @@
 import * as React from 'react';
 
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import {Button, Icon} from 'native-base';
 
 import {NavScreen, SCREEN_TO_NAME} from '../../controller/NavConstants';
 import {TICKETS} from '../../model/testData';
 import TicketListing from './TicketListing';
 import {Ticket} from '../../controller/ModelConstants';
-import SaveCancelHeader from '../shared/SaveCancelHeader';
 
 interface ProfileHeaderProps {
   onClickMore: () => void;
@@ -34,7 +33,7 @@ export default function ProfileScreen({navigation}): JSX.Element {
     });
   };
   return (
-    <View style={{flex: 1}}>
+    <>
       <ProfileHeader
         onClickMore={() => {
           navigation.navigate(SCREEN_TO_NAME[NavScreen.SettingsScreen]);
@@ -60,7 +59,7 @@ export default function ProfileScreen({navigation}): JSX.Element {
         </View>
         <TicketListing tickets={TICKETS} onClickTicket={handleClickTicket} />
       </View>
-    </View>
+    </>
   );
 }
 
