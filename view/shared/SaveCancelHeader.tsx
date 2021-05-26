@@ -23,7 +23,7 @@ export default function SaveCancelHeader(
   }
 
   return (
-    <View style={{flexDirection: 'row', marginTop: 40}}>
+    <View style={{flexDirection: 'row', marginTop: 40, zIndex: 999}}>
       {props.showCancel && (
         <View style={{flex: 0, position: 'absolute', left: 30, top: 5}}>
           {props.cancelText ? (
