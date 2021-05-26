@@ -1,4 +1,4 @@
-import {NAME_TO_SCREEN, SCREEN_TO_ICON} from './NavConstants';
+import {NAME_TO_SCREEN, SCREEN_TO_ICON} from '../constants/NavConstants';
 
 export function assert(condition, message) {
   if (!condition) {

@@ -3,11 +3,11 @@ import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import {getIconFromTabName} from '../../controller/utils';
-import ProfileNavigator from '../profile/ProfileNavigator';
-import HomeScreen from '../home/HomeScreen';
-import {NavScreen, SCREEN_TO_NAME} from '../../controller/NavConstants';
-import CreateNavigator from '../create/CreateNavigator';
+import {getIconFromTabName} from '../utils/utils';
+import ProfileNavigator from './ProfileNavigator';
+import HomeScreen from '../screens/home/HomeScreen';
+import {NavScreen, SCREEN_TO_NAME} from '../constants/NavConstants';
+import CreateNavigator from './CreateNavigator';
 
 const Tab = createBottomTabNavigator();
 
