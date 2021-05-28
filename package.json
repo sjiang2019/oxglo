@@ -47,6 +47,12 @@
     "react-test-renderer": "17.0.1"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@react-native|react-native|native-base|react-native-vector-icons|native-base-shoutem-theme|react-native-easy-grid|react-native-drawer|@react-native-community|@codler|react-native-iphone-x-helper|@react-native-picker|react-native-date-picker|react-native-collapsible|react-native-camera|react-native-image-picker)/)"
+    ],
+    "modulePathIgnorePatterns": [
+      ".history/"
+    ]
   }
 }
