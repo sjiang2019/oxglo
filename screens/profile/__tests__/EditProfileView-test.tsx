@@ -8,13 +8,18 @@ import React from 'react';
 import TestRenderer from 'react-test-renderer';
 
 import {sandbox} from '../../../test/TestUtils';
-import CameraPreview from '../CameraPreview';
+import EditProfileView from '../EditProfileView';
 
 it('renders', () => {
-  const onRetakeStub = sandbox.stub();
+  const onClickImageStub = sandbox.stub();
   const onSaveStub = sandbox.stub();
-  const photo = sandbox.stub();
+  const onCancelStub = sandbox.stub();
   TestRenderer.create(
-    <CameraPreview photo={photo} onRetake={onRetakeStub} onSave={onSaveStub} />,
+    <EditProfileView
+      image={null}
+      onClickImage={onClickImageStub}
+      onSave={onSaveStub}
+      onCancel={onCancelStub}
+    />,
   );
 });
