@@ -15,10 +15,10 @@ import {Item, Input} from 'native-base';
 import DatePicker from 'react-native-date-picker';
 import Collapsible from 'react-native-collapsible';
 
-import SaveCancelHeader from '../../components/SaveCancelHeader';
 import {NavScreen, SCREEN_TO_NAME} from '../../constants/NavConstants';
 import {handleResetStack} from '../../utils/utils';
 import TextField from '../../components/TextField';
+import SaveCancelHeader from '../../components/SaveCancelHeader';
 
 export default function CreateScreen({route, navigation}): JSX.Element {
   const photo = route.params?.photo;
