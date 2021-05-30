@@ -2,14 +2,14 @@ import * as React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 
-import SignInScreen from './screens/start/SignInScreen';
-import AppNavigator from './navigation/AppNavigator';
-import {DEFAULT_AUTH_STATE} from './constants/AuthConstants';
+import SignInScreen from './src/screens/start/SignInScreen';
+import AppNavigator from './src/navigation/AppNavigator';
+import {DEFAULT_AUTH_STATE} from './src/constants/AuthConstants';
 import {
   fetchUserToken,
   useAuthContextMemo,
   useAuthState,
-} from './utils/AuthUtils';
+} from './src/utils/AuthUtils';
 
 export const AuthContext = React.createContext();
 

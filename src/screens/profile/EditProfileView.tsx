@@ -3,8 +3,8 @@ import * as React from 'react';
 import {Image, Text, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Textarea} from 'native-base';
 
-import SaveCancelHeader from '../../components/SaveCancelHeader';
 import TextField from '../../components/TextField';
+import SaveCancelHeader from '../../components/SaveCancelHeader';
 
 interface EditProfileViewProps {
   image: any;

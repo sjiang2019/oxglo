@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import {handleResetStack} from '../../utils/utils';
 import {NavScreen, SCREEN_TO_NAME} from '../../constants/NavConstants';
 import CameraView from '../../components/CameraView';
 import EditProfileView from './EditProfileView';
+import {handleResetStack} from '../../utils/utils';
 
 export default function EditProfileScreen({navigation}): JSX.Element {
   const [isEditingProfilePhoto, setIsEditingProfilePhoto] =

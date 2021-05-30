@@ -2,11 +2,11 @@ import * as React from 'react';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
-import ProfileScreen from '../screens/profile/ProfileScreen';
 import SettingsScreen from '../screens/profile/SettingsScreen';
 import TicketDetailsScreen from '../screens/profile/TicketDetailsScreen';
-import EditProfileScreen from '../screens/profile/EditProfileScreen';
 import {NavScreen, SCREEN_TO_NAME} from '../constants/NavConstants';
+import EditProfileScreen from '../screens/profile/EditProfileScreen';
+import ProfileScreen from '../screens/profile/ProfileScreen';
 
 const Stack = createStackNavigator();
 

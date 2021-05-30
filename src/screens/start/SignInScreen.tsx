@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {AuthContext} from '../../App';
+import {AuthContext} from '../../../App';
 import SignInView from './SignInScreenView';
 
 export default function SignInScreen() {
