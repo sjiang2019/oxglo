@@ -3,34 +3,17 @@ import * as React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Button, Icon} from 'native-base';
 import {RNCamera} from 'react-native-camera';
-import {launchImageLibrary} from 'react-native-image-picker';
 
+import {NavScreen, SCREEN_TO_NAME} from '../constants/NavConstants';
 import CameraPreview from './CameraPreview';
-import {NavScreen, SCREEN_TO_NAME} from '../../constants/NavConstants';
+import {selectPhotoFromLibrary} from '../utils/utils';
 
-const handleSelectPhoto = (setImage, setPreview) => {
-  const options = {
-    storageOptions: {
-      skipBackup: true,
-      path: 'images',
-    },
-  };
-  launchImageLibrary(options, response => {
-    console.log('Response = ', response);
+interface CameraViewProps {
+  navigation: any;
+  setImage: (photo: any) => void;
+}
 
-    if (response.didCancel) {
-      console.log('User cancelled image picker');
-    } else if (response.error) {
-      console.log('ImagePicker Error: ', response.error);
-    } else {
-      console.log('response', JSON.stringify(response));
-      setPreview(true);
-      setImage(response);
-    }
-  });
-};
-
-export default function CameraScreen({navigation}) {
+export default function CameraView({navigation}) {
   const [previewVisible, setPreviewVisible] = React.useState(false);
   const [capturedImage, setCapturedImage] = React.useState<any>(null);
   const takePicture = async () => {
@@ -51,6 +34,14 @@ export default function CameraScreen({navigation}) {
       photo: capturedImage,
     });
   };
+  const handleSelectPhoto = () => {
+    const photo = selectPhotoFromLibrary();
+    if (photo != null) {
+      setPreviewVisible(true);
+      setCapturedImage(photo);
+    }
+  };
+
   return (
     <View style={styles.container}>
       {previewVisible && capturedImage ? (
@@ -76,8 +67,7 @@ export default function CameraScreen({navigation}) {
               <Button
                 dark
                 onPress={() => {
-                  handleSelectPhoto(setCapturedImage, setPreviewVisible);
-                  setPreviewVisible(true);
+                  handleSelectPhoto();
                 }}>
                 <Icon
                   name="images-outline"
