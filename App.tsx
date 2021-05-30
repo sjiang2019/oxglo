@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 
-import SignInScreen from './src/screens/start/SignInScreen';
 import AppNavigator from './src/navigation/AppNavigator';
 import {DEFAULT_AUTH_STATE} from './src/constants/AuthConstants';
 import {
@@ -10,6 +9,7 @@ import {
   useAuthContextMemo,
   useAuthState,
 } from './src/utils/AuthUtils';
+import StartNavigator from './src/navigation/StartNavigator';
 
 export const AuthContext = React.createContext();
 
@@ -24,7 +24,7 @@ const AppStack = () => {
   return (
     <AuthContext.Provider value={authContext}>
       <NavigationContainer>
-        {state.userToken == null ? <SignInScreen /> : <AppNavigator />}
+        {state.userToken == null ? <StartNavigator /> : <AppNavigator />}
       </NavigationContainer>
     </AuthContext.Provider>
   );
