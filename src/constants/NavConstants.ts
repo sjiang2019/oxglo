@@ -9,7 +9,10 @@ export enum NavScreen {
   ProfileNavigator,
   ProfileScreen,
   SettingsScreen,
+  SignInScreen,
+  StartNavigator,
   TicketDetails,
+  WelcomeScreen,
 }
 
 export const SCREEN_TO_NAME: {[key in NavScreen]: string} = {
@@ -21,7 +24,10 @@ export const SCREEN_TO_NAME: {[key in NavScreen]: string} = {
   [NavScreen.ProfileNavigator]: 'PROFILE_NAVIGATOR',
   [NavScreen.ProfileScreen]: 'PROFILE_SCREEN',
   [NavScreen.SettingsScreen]: 'SETTINGS_SCREEN',
+  [NavScreen.SignInScreen]: 'SIGNIN_SCREEN',
+  [NavScreen.StartNavigator]: 'START_NAVIGATOR',
   [NavScreen.TicketDetails]: 'TICKET_DETAILS',
+  [NavScreen.WelcomeScreen]: 'WELCOME_SCREEN',
 };
 
 export const NAME_TO_SCREEN: {[key: string]: NavScreen} =
