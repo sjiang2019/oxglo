@@ -5,7 +5,9 @@ import {Button, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {NavScreen, SCREEN_TO_NAME} from '../../constants/NavConstants';
 
 export default function WelcomeScreen({navigation}) {
-  const handleClickGetStarted = () => {};
+  const handleClickGetStarted = () => {
+    navigation.navigate(SCREEN_TO_NAME[NavScreen.PermissionsScreen]);
+  };
   const handleClickSignIn = () => {
     navigation.navigate(SCREEN_TO_NAME[NavScreen.SignInScreen]);
   };
