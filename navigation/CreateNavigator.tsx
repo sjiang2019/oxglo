@@ -4,7 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import {NavScreen, SCREEN_TO_NAME} from '../constants/NavConstants';
 import CreateScreen from '../screens/create/CreateScreen';
-import CameraView from '../components/CameraView';
+import CameraScreen from '../screens/create/CameraScreen';
 
 const Stack = createStackNavigator();
 
@@ -18,7 +18,7 @@ export default function CreateNavigator(): JSX.Element {
       />
       <Stack.Screen
         name={SCREEN_TO_NAME[NavScreen.CameraScreen]}
-        component={CameraView}
+        component={CameraScreen}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

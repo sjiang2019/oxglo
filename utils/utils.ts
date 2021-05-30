@@ -20,7 +20,9 @@ export function handleResetStack(navigation, screen): void {
   });
 }
 
-export function selectPhotoFromLibrary(): any {
+export function selectPhotoFromLibrary(
+  onSelectPhoto: (photo: any) => void,
+): any {
   const options = {
     storageOptions: {
       skipBackup: true,
@@ -32,13 +34,11 @@ export function selectPhotoFromLibrary(): any {
 
     if (response.didCancel) {
       console.log('User cancelled image picker');
-      return null;
     } else if (response.error) {
       console.log('ImagePicker Error: ', response.error);
-      return null;
     } else {
       console.log('response', JSON.stringify(response));
-      return response;
+      onSelectPhoto(response);
     }
   });
 }

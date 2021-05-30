@@ -4,51 +4,44 @@ import {StyleSheet, View} from 'react-native';
 import {Button, Icon} from 'native-base';
 import {RNCamera} from 'react-native-camera';
 
-import {NavScreen, SCREEN_TO_NAME} from '../constants/NavConstants';
 import CameraPreview from './CameraPreview';
 import {selectPhotoFromLibrary} from '../utils/utils';
 
 interface CameraViewProps {
-  navigation: any;
-  setImage: (photo: any) => void;
+  image: any;
+  setImage: (image: any) => void;
+  onSave: () => void;
 }
 
-export default function CameraView({navigation}) {
+export default function CameraView(props: CameraViewProps) {
   const [previewVisible, setPreviewVisible] = React.useState(false);
-  const [capturedImage, setCapturedImage] = React.useState<any>(null);
   const takePicture = async () => {
     if (this.camera) {
       const options = {quality: 0.5, base64: true};
       const data = await this.camera.takePictureAsync(options);
       console.log(data.uri);
       setPreviewVisible(true);
-      setCapturedImage(data);
+      props.setImage(data);
     }
   };
   const handleRetakePhoto = () => {
     setPreviewVisible(false);
-    setCapturedImage(null);
-  };
-  const handleSavePhoto = () => {
-    navigation.navigate(SCREEN_TO_NAME[NavScreen.CreateScreen], {
-      photo: capturedImage,
-    });
+    props.setImage(null);
   };
   const handleSelectPhoto = () => {
-    const photo = selectPhotoFromLibrary();
-    if (photo != null) {
+    selectPhotoFromLibrary((photo: any) => {
       setPreviewVisible(true);
-      setCapturedImage(photo);
-    }
+      props.setImage(photo);
+    });
   };
 
   return (
     <View style={styles.container}>
-      {previewVisible && capturedImage ? (
+      {previewVisible && props.image ? (
         <CameraPreview
-          photo={capturedImage}
+          photo={props.image}
           onRetake={handleRetakePhoto}
-          onSave={handleSavePhoto}
+          onSave={props.onSave}
         />
       ) : (
         <>
