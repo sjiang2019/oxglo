@@ -28,7 +28,7 @@ function ProfileHeader(props: ProfileHeaderProps): JSX.Element {
 
 export default function ProfileScreen({navigation}): JSX.Element {
   const handleClickTicket = (ticket: Ticket) => {
-    navigation.navigate(SCREEN_TO_NAME[NavScreen.TicketDetails], {
+    navigation.navigate(SCREEN_TO_NAME[NavScreen.TicketDetailsScreen], {
       ticket: ticket,
     });
   };
