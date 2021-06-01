@@ -4,14 +4,14 @@ import {Button, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 import {NavScreen, SCREEN_TO_NAME} from '../../../constants/NavConstants';
 
-export default function PermissionsScreen({navigation}) {
+export default function UsernameScreen({navigation}) {
   return (
     <View style={styles.container}>
-      <Text> Permissions </Text>
+      <Text> Username </Text>
       <TouchableOpacity
         style={styles.nextButton}
         onPress={() => {
-          navigation.navigate(SCREEN_TO_NAME[NavScreen.PhoneNumberScreen]);
+          navigation.navigate(SCREEN_TO_NAME[NavScreen.InvitesScreen]);
         }}>
         <Text>Next</Text>
       </TouchableOpacity>
