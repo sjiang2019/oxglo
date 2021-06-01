@@ -1,6 +1,7 @@
 import _ from 'lodash';
 
 export enum NavScreen {
+  AddProfilePhotoScreen,
   AppNavigator,
   CameraScreen,
   CreateNavigator,
@@ -23,6 +24,7 @@ export enum NavScreen {
 }
 
 export const SCREEN_TO_NAME: {[key in NavScreen]: string} = {
+  [NavScreen.AddProfilePhotoScreen]: 'ADD_PROFILE_PHOTO',
   [NavScreen.AppNavigator]: 'APP_NAVIGATOR',
   [NavScreen.CameraScreen]: 'CAMERA_SCREEN',
   [NavScreen.CreateNavigator]: 'CREATE_NAVIGATOR',
