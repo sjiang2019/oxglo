@@ -11,6 +11,7 @@ import FirstNameScreen from '../screens/start/onboarding/FirstNameScreen';
 import LastNameScreen from '../screens/start/onboarding/LastNameScreen';
 import UsernameScreen from '../screens/start/onboarding/UsernameScreen';
 import InvitesScreen from '../screens/start/onboarding/InvitesScreen';
+import AddProfilePhotoScreen from '../screens/start/onboarding/AddProfilePhotoScreen';
 
 const Stack = createStackNavigator();
 
@@ -50,6 +51,11 @@ export default function StartNavigator(): JSX.Element {
       <Stack.Screen
         name={SCREEN_TO_NAME[NavScreen.UsernameScreen]}
         component={UsernameScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={SCREEN_TO_NAME[NavScreen.AddProfilePhotoScreen]}
+        component={AddProfilePhotoScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen
