@@ -1,20 +1,16 @@
 import * as React from 'react';
 
-import {Button, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
+import {AuthContext} from '../../../../App';
 import {NavScreen, SCREEN_TO_NAME} from '../../../constants/NavConstants';
 
 export default function InvitesScreen({navigation}) {
+  const {signIn} = React.useContext(AuthContext);
   return (
     <View style={styles.container}>
       <Text> Invites </Text>
-      <TouchableOpacity
-        style={styles.nextButton}
-        onPress={() => {
-          navigation.navigate(SCREEN_TO_NAME[NavScreen.AppNavigator], {
-            screen: SCREEN_TO_NAME[NavScreen.HomeScreen],
-          });
-        }}>
+      <TouchableOpacity style={styles.nextButton} onPress={signIn}>
         <Text>Next</Text>
       </TouchableOpacity>
     </View>

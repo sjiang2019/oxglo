@@ -51,7 +51,9 @@ export default function SignInView(props: SignInViewProps) {
 
         <TouchableOpacity
           style={styles.loginBtn}
-          onPress={() => props.onClickSignIn({username, password})}>
+          onPress={() => {
+            props.onClickSignIn({username, password});
+          }}>
           <Text style={styles.loginText}>Sign in</Text>
         </TouchableOpacity>
       </View>
